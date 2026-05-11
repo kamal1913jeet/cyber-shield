@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name            = "cybershield"
+version         = "1.0.0"
+description     = "Defensive cybersecurity toolkit with GUI and CLI"
+readme          = "README.md"
+requires-python = ">=3.10"
+license         = { text = "MIT" }
+
+keywords = [
+    "cybersecurity", "network-scanner", "vulnerability",
+    "hardening", "defensive-security"
+]
+
+dependencies = [
+    "rich>=13.0",
+    "flask>=3.0",
+    "pyngrok>=7.0",
+    "qrcode[pil]>=7.4",
+    "paramiko>=3.0",
+    "reportlab>=4.0",
+    "PyQt6>=6.6",
+    "requests>=2.31",
+    "scapy>=2.5",
+]
+
+[project.scripts]
+cybershield = "cybershield:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["cybershield*"]
+
+[tool.setuptools.package-data]
+"cybershield" = [
+    "gui/styles/*.qss",
+    "config.py",
+]
